@@ -8,6 +8,7 @@ import { ResponseService } from '../response/response.service';
 @Module({
   imports: [MongooseModule.forFeature([{name: 'Url', schema: UrlSchema}])],
   providers: [UrlService, ResponseService],
-  controllers: [UrlController]
+  controllers: [UrlController],
+  exports: [UrlService, ResponseService]
 })
 export class UrlModule {}
