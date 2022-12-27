@@ -2,6 +2,7 @@
 import { Controller, Post, Res, HttpStatus, Body, Get, Param, NotFoundException, Delete, Query, Put, UseGuards } from '@nestjs/common';
 import { UrlService } from "./url.service";
 import { CreateUrlDTO } from "./dto/createUrl.dto";
+import { RedirectUrlDTO } from './dto/redirectUrlDTO.dto';
 import { ResponseService } from '../response/response.service';
 
 @Controller('url')
@@ -53,4 +54,28 @@ export class UrlController {
 
         return response;
     }
+
+    @Get('/redirect/:shortUrl')
+    async getUrlRedirect(@Res() res, @Param() redirectUrlDTO: RedirectUrlDTO) {
+        
+        let response;
+
+        try {
+        const urls = await this.urlService.getUrlByUrlShort(redirectUrlDTO.shortUrl);
+
+        // response = res.status(HttpStatus.OK).json(
+        //     this.responseService.getResponse(
+        //         urls,
+        //         'OK')
+        // )
+        return res.redirect(urls.longUrl);
+
+        } catch (error) {
+            response = res.status(HttpStatus.INTERNAL_SERVER_ERROR).json(
+            this.responseService.getResponse(error.message, 'ERROR')
+            );
+        }
+
+        return response;
+    }    
 }
