@@ -15,21 +15,17 @@ export class IsUrlShortAlreadyExistConstraint implements ValidatorConstraintInte
   ) { }
 
   async validate(urlShort: String) {
-    return false;
-
-    console.log('validate')
     if (await this.urlService.getUrlByUrlShort(urlShort)) {
       console.log('found')
       return false;
     } else {
-      console.log('NOT found')
+      console.log('Not found')
       return true;
     }
   }
 }
 
 export function IsUrlShortAlreadyExist(validationOptions?: ValidationOptions) {
-  console.log('validate 2222')
   return function (object: Object, propertyName: string) {
     registerDecorator({
       target: object.constructor,
