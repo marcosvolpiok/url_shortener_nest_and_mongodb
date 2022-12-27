@@ -1,0 +1,79 @@
+{
+	"info": {
+		"_postman_id": "097c84a6-f931-479d-9fbf-2024f583a4a9",
+		"name": "URL shortener",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get URLs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{host}}:{{port}}/url/",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"url",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Redirect URLs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{host}}:{{port}}/url/redirect/abc",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"url",
+						"redirect",
+						"abc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add URL",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \n    \"longUrl\": \"https://xxxxxxxxx.com/xxxxxxxxx/xxxxxxxx/xxxxxx/\",\n    \"shortUrl\": \"abcdefggg\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{host}}:{{port}}/url/",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"url",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
