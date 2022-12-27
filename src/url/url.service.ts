@@ -19,12 +19,8 @@ export class UrlService {
         return url;
     }
     
-    async getUrlById(id: String): Promise<Url> {
-        if(isValidObjectId(id) && await this.urlModel.findById(id)) {
-            return await this.urlModel.findById(id);
-        }
-
-        return null;
+    async getUrlByUrlShort(urlShort: String): Promise<Url> {
+        return await this.urlModel.findOne({shortUrl: urlShort});
     }
     
     async createUrl(createUrlDTO: CreateUrlDTO): Promise<Url> {

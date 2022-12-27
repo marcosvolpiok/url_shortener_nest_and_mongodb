@@ -34,6 +34,7 @@ export class UrlController {
 
     @Get('/')
     async getUrls(@Res() res) {
+        
         let response;
 
         try {
