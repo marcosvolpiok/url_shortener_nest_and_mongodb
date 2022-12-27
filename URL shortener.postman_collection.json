@@ -53,7 +53,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \n    \"longUrl\": \"https://xxxxxxxxx.com/xxxxxxxxx/xxxxxxxx/xxxxxx/\",\n    \"shortUrl\": \"abcdefggg\"\n}",
+					"raw": "{\n    \n    \"longUrl\": \"https://some-long-domain.com/some/long/url/12345/12345/12345\",\n    \"shortUrl\": \"abc\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
