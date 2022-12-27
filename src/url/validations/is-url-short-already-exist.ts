@@ -16,10 +16,8 @@ export class IsUrlShortAlreadyExistConstraint implements ValidatorConstraintInte
 
   async validate(urlShort: String) {
     if (await this.urlService.getUrlByUrlShort(urlShort)) {
-      console.log('found')
       return false;
     } else {
-      console.log('Not found')
       return true;
     }
   }

@@ -63,11 +63,6 @@ export class UrlController {
         try {
         const urls = await this.urlService.getUrlByUrlShort(redirectUrlDTO.shortUrl);
 
-        // response = res.status(HttpStatus.OK).json(
-        //     this.responseService.getResponse(
-        //         urls,
-        //         'OK')
-        // )
         return res.redirect(urls.longUrl);
 
         } catch (error) {

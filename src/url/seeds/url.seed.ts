@@ -16,6 +16,5 @@ export class UrlSeed {
         shortUrl: "abc",
         createdAt: new Date()
       });
-      console.log(url);
   }
 }
