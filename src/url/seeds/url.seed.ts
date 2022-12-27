@@ -13,7 +13,7 @@ export class UrlSeed {
   async create() {
       const url = await this.urlService.createUrl({
         longUrl: "https://google.com",
-        shortUrl: "https://short.it/abc",
+        shortUrl: "abc",
         createdAt: new Date()
       });
       console.log(url);

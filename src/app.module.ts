@@ -5,6 +5,8 @@ import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from "@nestjs/mongoose";
 import { UrlController } from './url/url.controller';
 import { UrlModule } from './url/url.module'; 
+import { SeedsModule } from './seeds/module/seeds.module';
+
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -13,7 +15,8 @@ import { UrlModule } from './url/url.module';
     MongooseModule.forRoot(`mongodb://${process.env.MONGO_HOST}:${process.env.MONGO_PORT}/${process.env.MONGO_DB_NAME}`, {
        useNewUrlParser: true
     }),
-    UrlModule
+    UrlModule,
+    SeedsModule
   ],
   controllers: [AppController, UrlController],
   providers: [AppService],
